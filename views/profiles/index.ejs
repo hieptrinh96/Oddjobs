@@ -1,18 +1,20 @@
 <%- include('../partials/html-head') %>
   <link rel="stylesheet" href="/stylesheets/profiles/index.css">
   <%- include('../partials/nav') %>
-
-    <div class="text-end d-flex align-items-center">
-      <% if (user) { %>
-        <a href="/auth/logout">
-          <button class="btn btn-warning">Logout</button>
-        </a>
-        <% } else { %>
-          <div id="g_id_onload" data-client_id="<%= googleClientID %>" data-login_uri="<%= googleLoginURL %>"
-            data-auto_prompt="false"></div>
-          <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with"
-            data-shape="rectangular" data-logo_alignment="left"></div>
-          <% } %>
-    </div>
-
+    <main class="main">
+      <div class="card-container">
+        <% profiles.forEach(profile=> { %>
+          <a class="text-decoration-none" href="/profiles/<%= profile._id %>">
+            <div class="card">
+              <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
+              <div class="card-body">
+                <h1 class="card-title">
+                  <%= profile.name %>
+                </h1>
+              </div>
+            </div>
+          </a>
+          <% }) %>
+      </div>
+    </main>
     <%- include('../partials/footer') %>
