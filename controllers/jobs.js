@@ -2,11 +2,11 @@ import { Job } from '../models/job.js'
 import { Profile } from '../models/profile.js'
 
 function index(req, res) {
-  Profile.find({})
+  Job.find({})
     .then(jobs => {
       res.render('jobs/index', {
         jobs,
-        title: 'Fill out form to continue!'
+        title: 'Find a job you like?'
       })
     })
     .catch(error => {
@@ -15,6 +15,16 @@ function index(req, res) {
     })
 }
 
+function newJob(req, res) {
+  req.body.owner = req.user.profile_id
+  res.render('jobs/new', {
+    title: 'Post a job!'
+  })
+    .catch(error => {
+      console.log(error)
+      res.redirect('/job')
+    })
+}
 
 function create(req, res) {
   req.body.owner = req.user.profile_id
@@ -24,11 +34,24 @@ function create(req, res) {
     })
     .catch(error => {
       console.log(error)
-      res.redirect('/jobs')
+      res.redirect('/jobs/new')
+    })
+}
+
+function show(req, res) {
+  Job.findById(req.params.id)
+    .populate('owner')
+    .then(job => {
+      res.render('jobs/show', {
+        job,
+        title: 'Job Details'
+      })
     })
 }
 
 export {
   create,
-  index
+  index,
+  newJob as new,
+  show
 }

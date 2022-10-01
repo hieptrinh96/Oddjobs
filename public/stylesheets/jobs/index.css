@@ -1,0 +1,17 @@
+section {
+  width: 100%;
+}
+
+.job {
+  border: 2px solid white;
+}
+
+.job p {
+  display: column;
+  padding-left: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}

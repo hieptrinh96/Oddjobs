@@ -1,0 +1,16 @@
+<%- include('../partials/html-head') %>
+  <link rel="stylesheet" href="/stylesheets/jobs/index.css">
+  <%- include('../partials/nav') %>
+
+    <section>
+      <h1>
+        <%= title %>
+      </h1>
+      <h2>job #1</h2>
+      <% jobs.forEach(job=> { %>
+        <%= job.name %>
+          <%= job.detail %>
+    </section>
+
+
+    <%- include('../partials/footer') %>
