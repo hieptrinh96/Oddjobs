@@ -67,10 +67,48 @@ function edit(req, res) {
     })
 }
 
+function deleteJob(req, res) {
+  Job.findById(req.params.id)
+    .then(job => {
+      if (job.owner.equals(req.user.profile._id)) {
+        job.delete()
+          .then(deletedJob => {
+            res.redirect('/jobs')
+          })
+      } else {
+        throw new Error('Not Authorized')
+      }
+    })
+    .catch(error => {
+      console.log(error)
+      res.redirect('/jobs')
+    })
+}
+
+function update(req, res) {
+  Job.findById(req.params.id)
+    .then(job => {
+      if (job.owner.equals(req.user.profile._id)) {
+        job.updateOne(req.body)
+          .then(updatedJob => {
+            res.redirect(`/jobs/${job._id}`)
+          })
+      } else {
+        throw new Error('Not Authorized')
+      }
+    })
+    .catch(error => {
+      console.log(error)
+      res.redirect('jobs')
+    })
+}
+
 export {
   create,
   index,
   newJob as new,
   show,
-  edit
+  edit,
+  deleteJob as delete,
+  update
 }

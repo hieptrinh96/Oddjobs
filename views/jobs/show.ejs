@@ -21,10 +21,9 @@
       </div>
       <% if (job.owner.equals(user?.profile._id)) { %>
         <a href="/jobs/<%= job._id %>/edit">Edit</a>
+        <form action="/jobs/<%= job._id %>?_method=delete" method="post">
+          <button type="submit">Remove post</button>
+        </form>
         <% } %>
-
-
     </section>
-
-
     <%- include('../partials/footer') %>
