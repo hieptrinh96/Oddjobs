@@ -1,15 +1,29 @@
 <%- include('../partials/html-head') %>
-  <link rel="stylesheet" href="/stylesheets/jobs/index.css">
+  <link rel="stylesheet" href="/stylesheets/jobs/show.css">
   <%- include('../partials/nav') %>
 
     <section>
       <h1>
         <%= title %>
       </h1>
-      <h2>job #1</h2>
-      <% jobs.forEach(job=> { %>
-        <%= job.name %>
+      <div class="job-container">
+        <h3>Post was created by <%= job.name %>
+        </h3>
+        <p>
           <%= job.detail %>
+        </p>
+        <p>
+          <%= job.location %>
+        </p>
+        <p>
+          <%= job.classify %>
+        </p>
+      </div>
+      <% if (job.owner.equals(user?.profile._id)) { %>
+        <a href="/jobs/<%= job._id %>/edit">Edit</a>
+        <% } %>
+
+
     </section>
 
 

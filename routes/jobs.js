@@ -4,12 +4,12 @@ import { isLoggedIn } from '../middleware/middleware.js'
 
 const router = Router()
 
-router.get('/', isLoggedIn, jobsCtrl.index)
+router.get('/', jobsCtrl.index)
 router.get('/new', isLoggedIn, jobsCtrl.new)
-router.get('/:id/show', jobsCtrl.show)
+router.get('/:id', jobsCtrl.show)
+router.get('/:id/edit', isLoggedIn, jobsCtrl.edit)
 
 router.post('/', isLoggedIn, jobsCtrl.create)
-
 export {
   router
 }

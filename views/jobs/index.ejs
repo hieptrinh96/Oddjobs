@@ -8,7 +8,7 @@
       </h1>
       <% jobs.forEach(job=> { %>
         <div class="job">
-          <a href="/jobs<%= job._id %>">
+          <a href="/jobs/<%= job._id %>">
             <p>
               Type of work: <%= job.classify %>
             </p>
@@ -18,6 +18,8 @@
             <p>
               Location: <%= job.location %>
             </p>
+            <p><small>Posted by: <%=job.name %> on <%= job.createdAt %>
+              </small></p>
           </a>
         </div>
         <% }) %>

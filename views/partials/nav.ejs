@@ -6,10 +6,13 @@
     <body>
       <nav>
         <% if (user) { %>
+          <a href="/jobs" class="right">
+            <button>All Jobs</button>
+          </a>
           <a href="/auth/logout" class="right">
             <button type="submit">Logout</button>
           </a>
-          <a href="/jobs/new">Add Job</a>
+
           <% } else { %>
             <div id="g_id_onload" data-client_id="<%= googleClientID %>" data-login_uri="/auth/google"
               data-auto_prompt="false"></div>
