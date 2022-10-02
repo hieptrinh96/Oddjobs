@@ -18,17 +18,12 @@ function newJob(req, res) {
   res.render('jobs/new', {
     title: 'Post a job!'
   })
-    .catch(error => {
-      console.log(error)
-      res.redirect('/jobs')
-    })
 }
 
 function create(req, res) {
   req.body.owner = req.user.profile._id
   Job.create(req.body)
     .then(job => {
-      console.log()
       res.redirect('/jobs')
     })
     .catch(error => {

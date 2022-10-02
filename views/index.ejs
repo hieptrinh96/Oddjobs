@@ -6,7 +6,9 @@
       </h1>
       <% if (user?.profile.avatar) { %>
         <div>
-          <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar" />
+          <a href="/profiles/<%= user.profile._id %>">
+            <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar" />
+          </a>
         </div>
         <% } %>
     </main>
