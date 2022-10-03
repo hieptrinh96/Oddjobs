@@ -64,6 +64,13 @@ function createAboutMe(req, res) {
     })
 }
 
+function updateAboutMe(req, res) {
+  Profile.findById(req.params.id)
+    .then(profile => {
+
+    })
+}
+
 // function newProfile(req, res) {
 //   res.render('profiles/new', {
 //     title: 'Tell us about yourself!'
@@ -75,5 +82,6 @@ export {
   show,
   // newProfile as new,
   edit,
-  createAboutMe
+  createAboutMe,
+  updateAboutMe
 }

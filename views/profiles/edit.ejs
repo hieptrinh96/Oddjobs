@@ -4,7 +4,28 @@
     <h2>Edit Page</h2>
     <div>
       <form action="/profiles/<%= profile._id %>" method="post">
-
+        <label name="name">
+          Name:
+          <input type="text" name="name">
+        </label>
+        <label name="experience">
+          What are you good at?
+          <input type="text" name="experience">
+        </label>
+        <label name="location">
+          Location:
+          <input type="text" name="location">
+        </label>
+        <label name="preference">
+          What type of work do ypu prefer?
+          <select name="preference">
+            <option value="manual labor">Manual Labor</option>
+            <option value="teaching">Teaching/Tutoring</option>
+            <option value="cleaning">Cleaning/Chores</option>
+            <option value="design">design</option>
+          </select>
+          <button type="submit">Update profile!</button>
+        </label>
       </form>
     </div>
     <%- include('../partials/footer') %>
