@@ -1,10 +1,13 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose from 'mongoose'
+
+const Schema = mongoose.Schema
 
 const descriptionSchema = new Schema({
-  owner: { type: Schema.Types.ObjectId, ref: 'Profiles' },
   name: String,
   skill: String,
   location: String,
+  detail: String,
+  owner: { type: Schema.Types.ObjectId, ref: 'Profile' }
 }, {
   timestamps: true
 })

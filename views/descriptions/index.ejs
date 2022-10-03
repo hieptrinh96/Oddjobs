@@ -1,0 +1,26 @@
+<%- include('../partials/html-head') %>
+  <link rel="stylesheet" href="/stylesheets/jobs/index.css">
+  <%- include('../partials/nav') %>
+
+    <section>
+      <h1>
+        <%= title %>
+      </h1>
+      <% descriptions.forEach(description=> { %>
+        <div class="job">
+          <a href="/descriptions/<%= description._id %>">
+            <p>
+              What are you good at? <%= description.skill %>
+            </p>
+            <p>
+              Location: <%= description.location %>
+            </p>
+            <p><small>Posted by: <%=description.name %> on <%= description.createdAt %>
+              </small></p>
+          </a>
+        </div>
+        <% }) %>
+    </section>
+
+
+    <%- include('../partials/footer') %>

@@ -30,7 +30,22 @@ function show(req, res) {
     })
 }
 
+function edit(req, res) {
+  Profile.findById(req.params.id)
+    .then(profile => {
+      res.render('/profiles/edit', {
+        profile,
+        title: 'Edit'
+      })
+    })
+    .catch(error => {
+      console.log(error)
+      res.redirect('/profiles')
+    })
+}
+
 export {
   index,
-  show
+  show,
+  edit
 }

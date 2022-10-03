@@ -7,11 +7,10 @@ const reviewSchema = new Schema({
   rating: Number
 })
 
-
 const profileSchema = new Schema({
   name: String,
   avatar: String,
-  review: [reviewSchema]
+  review: [reviewSchema],
 }, {
   timestamps: true
 })

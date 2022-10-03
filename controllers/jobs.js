@@ -94,7 +94,7 @@ function update(req, res) {
     })
     .catch(error => {
       console.log(error)
-      res.redirect('jobs')
+      res.redirect('/jobs')
     })
 }
 
