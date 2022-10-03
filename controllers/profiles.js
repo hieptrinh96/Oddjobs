@@ -21,7 +21,7 @@ function show(req, res) {
       res.render('profiles/show', {
         title: 'About me',
         isSelf,
-        profile
+        profile,
       })
     })
     .catch(error => {
@@ -30,10 +30,11 @@ function show(req, res) {
     })
 }
 
+
 function edit(req, res) {
   Profile.findById(req.params.id)
     .then(profile => {
-      res.render('/profiles/edit', {
+      res.render('profiles/edit', {
         profile,
         title: 'Edit'
       })
@@ -44,8 +45,35 @@ function edit(req, res) {
     })
 }
 
+function createAboutMe(req, res) {
+  Profile.findById(req.params.id)
+    .then(profile => {
+      profile.aboutMe.push(req.body)
+      profile.save()
+        .then(() => {
+          res.redirect(`/profiles/${req.user.profile._id}`)
+        })
+        .catch(error => {
+          console.log(error)
+          res.redirect(`/profiles/${req.user.profile._id}`)
+        })
+    })
+    .catch(error => {
+      console.log(error)
+      res.redirect(`/profiles/${req.user.profile._id}`)
+    })
+}
+
+// function newProfile(req, res) {
+//   res.render('profiles/new', {
+//     title: 'Tell us about yourself!'
+//   })
+// }
+
 export {
   index,
   show,
-  edit
+  // newProfile as new,
+  edit,
+  createAboutMe
 }

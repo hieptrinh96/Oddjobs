@@ -7,31 +7,19 @@
         <img class="profile-avatar" src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
       </div>
       <div>
-        <p>Name: <%= profile.description.name %>
-        </p>
-        <p>What are you good at?
-          <%= profile.description.skill %>
-        </p>
-        <p>Location: <%= profile.description.location %>
+        <% profile.aboutMe.forEach(description=> { %>
+
+          <p>Name: <%= description.name %>
+          </p>
+      </div>
+      <div>
+        <p>What are you good at? <%= description.experience %>
         </p>
       </div>
-      <% if (isSelf) { %>
-        <h2>Tell us about yourself!</h2>
-        <form action="/profiles/<%= profile._id %>/descriptions" method="post">
-          <label name="name">
-            Name:
-            <input type="text" name="name">
-          </label>
-          <label name="skill">
-            What are you good at?
-            <input type="text" name="skill">
-          </label>
-          <label name="location">
-            Location:
-            <input type="text" name="location">
-          </label>
-          <button type="submit">Add Profile!</button>
-        </form>
-        <% } %>
+      <% }) %>
+        </div>
+        <% if (isSelf) { %>
+          <h2>User logged in</h2>
+          <% } %>
     </section>
     <%- include('../partials/footer') %>
