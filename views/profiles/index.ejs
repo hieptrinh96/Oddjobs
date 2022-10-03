@@ -4,7 +4,7 @@
     <main class="main">
       <div class="card-container">
         <% profiles.forEach(profile=> { %>
-          <a class="text-decoration-none" href="/profiles/<%= profile._id %>">
+          <a class="text-decoration-none" href="/profiles/<%= profile._id %>/edit">
             <div class="card">
               <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
               <div class="card-body">

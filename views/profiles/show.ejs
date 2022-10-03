@@ -6,20 +6,14 @@
       <div>
         <img class="profile-avatar" src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
       </div>
-      <div>
-        <% profile.aboutMe.forEach(description=> { %>
-
-          <p>Name: <%= description.name %>
-          </p>
-      </div>
-      <div>
-        <p>What are you good at? <%= description.experience %>
+      <% if (isSelf) { %>
+        <h2>User logged in</h2>
+        <p>Name: <%= profile.name %>
         </p>
-      </div>
-      <% }) %>
-        </div>
-        <% if (isSelf) { %>
-          <h2>User logged in</h2>
-          <% } %>
+        <p>Location: <%= profile.location %>
+        </p>
+        <p>What are you good at? <%= profile.experience %>
+        </p>
+        <% } %>
     </section>
     <%- include('../partials/footer') %>

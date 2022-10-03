@@ -3,7 +3,7 @@
   <%- include('../partials/nav') %>
     <h2>Edit Page</h2>
     <div>
-      <form action="/profiles/<%= profile._id %>" method="post">
+      <form action="/profiles/<%= profile._id %>?_method=PUT" method="POST">
         <label name="name">
           Name:
           <input type="text" name="name">

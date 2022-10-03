@@ -34,6 +34,7 @@ function show(req, res) {
 function edit(req, res) {
   Profile.findById(req.params.id)
     .then(profile => {
+      console.log('profile', profile)
       res.render('profiles/edit', {
         profile,
         title: 'Edit'
@@ -45,17 +46,12 @@ function edit(req, res) {
     })
 }
 
-function createAboutMe(req, res) {
+function update(req, res) {
   Profile.findById(req.params.id)
     .then(profile => {
-      profile.aboutMe.push(req.body)
-      profile.save()
-        .then(() => {
-          res.redirect(`/profiles/${req.user.profile._id}`)
-        })
-        .catch(error => {
-          console.log(error)
-          res.redirect(`/profiles/${req.user.profile._id}`)
+      profile.updateOne(req.body)
+        .then(updatedProfile => {
+          res.redirect(`/profiles/${profile._id}`)
         })
     })
     .catch(error => {
@@ -64,12 +60,36 @@ function createAboutMe(req, res) {
     })
 }
 
-function updateAboutMe(req, res) {
-  Profile.findById(req.params.id)
-    .then(profile => {
+// function createAboutMe(req, res) {
+//   Profile.findById(req.params.id)
+//     .then(profile => {
+//       profile.aboutMe.push(req.body)
+//       profile.save()
+//         .then(() => {
+//           res.redirect(`/profiles/${req.user.profile._id}/edit`)
+//         })
+//         .catch(error => {
+//           console.log(error)
+//           res.redirect(`/profiles/${req.user.profile._id}/edit`)
+//         })
+//     })
+//     .catch(error => {
+//       console.log(error)
+//       res.redirect(`/profiles/${req.user.profile._id}/edit`)
+//     })
+// }
 
-    })
-}
+// function updateAboutMe(req, res) {
+//   Profile.findById(req.params.id)
+//     .then(profile => {
+//       //about me doc that lives in aboutme arr
+//       const aboutMeInfo = profile.aboutMe.id(req.params.aboutMeId)
+//       //lets us update the item in the aboutme arr 
+//       aboutMeInfo.set(req.body)
+//       // save doesn't exist on subdocument
+//       profile.save()
+//     })
+// }
 
 // function newProfile(req, res) {
 //   res.render('profiles/new', {
@@ -82,6 +102,5 @@ export {
   show,
   // newProfile as new,
   edit,
-  createAboutMe,
-  updateAboutMe
+  update
 }

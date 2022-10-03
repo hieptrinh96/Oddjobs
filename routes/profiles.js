@@ -9,9 +9,12 @@ router.get('/', isLoggedIn, profilesCtrl.index)
 router.get('/:id', isLoggedIn, profilesCtrl.show)
 router.get('/:id/edit', profilesCtrl.edit)
 
-router.put('/:id', isLoggedIn, profilesCtrl.updateAboutMe)
+router.put('/:id', isLoggedIn, profilesCtrl.update)
+//should change id to profileId
+// add aboutme id
+// router.put('/:profileId/aboutMe/:aboutMeId', isLoggedIn, profilesCtrl.updateAboutMe)
 
-router.post('/:id/aboutMe', profilesCtrl.createAboutMe)
+// router.post('/:id/aboutMe', profilesCtrl.createAboutMe)
 
 export {
   router
