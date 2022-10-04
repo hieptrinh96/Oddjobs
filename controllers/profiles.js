@@ -19,7 +19,6 @@ function show(req, res) {
   Profile.findById(req.params.id)
     .populate('jobs')
     .then(profile => {
-      console.log('testing!!!!', profile)
       const isSelf = profile._id.equals(req.user.profile._id)
       Job.find({ _id: { $nin: profile.jobs } })
         .then(job => {
@@ -41,7 +40,6 @@ function show(req, res) {
 function edit(req, res) {
   Profile.findById(req.params.id)
     .then(profile => {
-      console.log('profile', profile)
       res.render('profiles/edit', {
         profile,
         title: 'Edit'
@@ -54,12 +52,12 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-  Profile.findById(req.params.id)
+  Profile.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(profile => {
-      profile.updateOne(req.body)
-        .then(updatedProfile => {
-          res.redirect(`/profiles/${profile._id}`)
-        })
+      // profile.updateOne(req.body)
+      // .then(updatedProfile => {
+      res.redirect(`/profiles/${profile._id}`)
+      // })
     })
     .catch(error => {
       console.log(error)
@@ -68,7 +66,6 @@ function update(req, res) {
 }
 
 function addToJobs(req, res) {
-  console.log('what is this', req.params.id)
   Profile.findById(req.params.id)
     .then(profile => {
       profile.jobs.push(req.body.id)

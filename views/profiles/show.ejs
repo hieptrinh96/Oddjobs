@@ -13,16 +13,23 @@
         </p>
         <p>Location: <%= profile.location %>
         </p>
-        <p>What are you good at? <%= profile.experience %>
+        <p>What job category do you want? <%= profile.experience %>
         </p>
+        Do you have a preference for jobs?
+        <%= profile.preference %>
       </div>
       <div>
         <h2>Saved Jobs</h2>
-
         <p>
           <% profile.jobs.forEach(job=> { %>
+            <p>Posted by <%= job.name %>
+            </p>
             <p>
-              <%= job.classify %>
+              Job Type: <%= job.classify %>
+            </p>
+            <p>Location: <%= job.location %>
+            </p>
+            <p>Job Description: <%= job.detail %>
             </p>
             <% }) %>
         </p>
