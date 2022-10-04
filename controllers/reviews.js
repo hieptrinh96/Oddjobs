@@ -6,21 +6,23 @@ function create(req, res) {
   req.body.owner = req.user.profile._id
   Review.create(req.body)
     .then(review => {
-      res.redirect('/reviews/new')
+      Profile.updateOne(
+        { _id: req.params.profileId },
+        { $push: { reviews: review } }
+      ).then(() => {
+        res.redirect(`/profiles/${req.params.profileId}`)
+      })
     })
     .catch(error => {
-      res.redirect('/reviews/new')
+      res.redirect('/')
     })
 }
 
 function newReview(req, res) {
-  Review.find(req.params.id)
-    .then(review => {
-      res.render('reviews/new', {
-        title: 'Add a review for the user!',
-        review
-      })
-    })
+  res.render('reviews/new', {
+    title: 'Add a review for the user!',
+    profileId: req.params.profileId
+  })
 }
 
 export {

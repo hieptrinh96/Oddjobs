@@ -4,8 +4,8 @@ import * as reviewsCtrl from '../controllers/reviews.js'
 
 const router = Router()
 
-router.get('/new', isLoggedIn, reviewsCtrl.new)
-router.post('/', isLoggedIn, reviewsCtrl.create)
+router.get('/new/:profileId', isLoggedIn, reviewsCtrl.new)
+router.post('/:profileId', isLoggedIn, reviewsCtrl.create)
 
 
 export {

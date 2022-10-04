@@ -40,11 +40,27 @@
                 <% }) %>
             </p>
           </div>
-
-
-
     </section>
     <section>
-
+      <% if (!isSelf) { %>
+        <h2>Give user a review!</h2>
+        <div>
+          <a href="/reviews/new/<%= profile._id %>">Create a post</a>
+        </div>
+        <% } %>
+    </section>
+    <section>
+      <% if (profile.reviews.length) { %>
+        <% profile.reviews.forEach(review=> { %>
+          <div>
+            <p>
+              <%= review.comment %>
+            </p>
+            <p>
+              <%= review.rating %>
+            </p>
+          </div>
+          <% }) %>
+            <% } %>
     </section>
     <%- include('../partials/footer') %>
