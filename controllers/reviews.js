@@ -25,7 +25,10 @@ function newReview(req, res) {
   })
 }
 
+
+
 export {
   create,
-  newReview as new
+  newReview as new,
+
 }

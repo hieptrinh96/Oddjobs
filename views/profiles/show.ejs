@@ -17,13 +17,15 @@
         Do you have a preference for jobs?
         <%= profile.preference %>
       </div>
+      <div>
+      </div>
       <% if (isSelf) { %>
         <a href="/profiles/<%= profile._id %>/edit">Edit</a>
         <% } %>
           <div>
             <h2>Saved Jobs</h2>
             <p>
-              <% profile.jobs.forEach(job=> { %>
+              <% profile.savedJobs.forEach(job=> { %>
                 <div class="job-links">
                   <a href="/jobs/<%= job._id %> ">
                     <p>Posted by <%= job.name %>
@@ -36,6 +38,9 @@
                     <p>Job Description: <%= job.detail %>
                     </p>
                   </a>
+                  <form action="/profiles/<%= profile._id %>/savedJobs/<%= job._id %>?_method=delete" method="post">
+                    <button>Delete</button>
+                  </form>
                 </div>
                 <% }) %>
             </p>

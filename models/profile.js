@@ -12,7 +12,8 @@ const profileSchema = new Schema({
     enum: ['manual labor', 'teaching', 'design', 'cleaning']
   },
   reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }],
-  jobs: [{ type: Schema.Types.ObjectId, ref: 'Job' }]
+
+  savedJobs: [{ type: Schema.Types.ObjectId, ref: 'Job' }]
 }, {
   timestamps: true
 })
