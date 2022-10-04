@@ -22,12 +22,6 @@
               </small></p>
           </a>
         </div>
-        <form action="/profiles/<%= user.profile._id %>/jobs" method="post">
-          <input type="text" name="id" hidden value="<%= job._id %>">
-          <button type="submit">
-            Add to Job list
-          </button>
-        </form>
         <% }) %>
     </section>
 
