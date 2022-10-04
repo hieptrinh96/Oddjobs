@@ -1,11 +1,6 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose"
 
 const Schema = mongoose.Schema
-
-const reviewSchema = new Schema({
-  comment: String,
-  rating: Number
-})
 
 const profileSchema = new Schema({
   name: String,
@@ -16,7 +11,7 @@ const profileSchema = new Schema({
     type: String,
     enum: ['manual labor', 'teaching', 'design', 'cleaning']
   },
-  review: [reviewSchema],
+  reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }],
   jobs: [{ type: Schema.Types.ObjectId, ref: 'Job' }]
 }, {
   timestamps: true

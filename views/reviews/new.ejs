@@ -1,0 +1,23 @@
+<%- include('../partials/html-head') %>
+  <link rel="stylesheet" href="/stylesheets/profiles/index.css">
+  <%- include('../partials/nav') %>
+
+    <main>
+      <h1>
+        <%= title %>
+      </h1>
+      <h2>Tell us about the user!</h2>
+      <form action="/reviews" method="post">
+        <label name="comment">
+          Describe your encounter with the user
+          <textarea name="comment"></textarea>
+        </label>
+        <label rating>
+          Rate the user
+          <input type="number" name="rating" min="1" max="5">
+        </label>
+        <button type="submit">Add a review!</button>
+      </form>
+    </main>
+
+    <%- include('../partials/footer') %>
