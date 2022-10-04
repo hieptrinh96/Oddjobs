@@ -17,6 +17,7 @@ const profileSchema = new Schema({
     enum: ['manual labor', 'teaching', 'design', 'cleaning']
   },
   review: [reviewSchema],
+  jobs: [{ type: Schema.Types.ObjectId, ref: 'Job' }]
 }, {
   timestamps: true
 })

@@ -9,6 +9,8 @@ router.get('/', isLoggedIn, profilesCtrl.index)
 router.get('/:id', isLoggedIn, profilesCtrl.show)
 router.get('/:id/edit', profilesCtrl.edit)
 
+router.post('/:id/jobs', profilesCtrl.addToJobs)
+
 router.put('/:id', isLoggedIn, profilesCtrl.update)
 //should change id to profileId
 // add aboutme id

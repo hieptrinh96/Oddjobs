@@ -6,7 +6,8 @@
       <div>
         <img class="profile-avatar" src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
       </div>
-      <% if (isSelf) { %>
+      <div>
+
         <h2>User logged in</h2>
         <p>Name: <%= profile.name %>
         </p>
@@ -14,6 +15,25 @@
         </p>
         <p>What are you good at? <%= profile.experience %>
         </p>
+      </div>
+      <div>
+        <h2>Saved Jobs</h2>
+
+        <p>
+          <% profile.jobs.forEach(job=> { %>
+            <p>
+              <%= job.classify %>
+            </p>
+            <% }) %>
+        </p>
+      </div>
+
+      <% if (isSelf) { %>
+        <a href="/profiles/<%= profile._id %>/edit">Edit</a>
         <% } %>
+
+    </section>
+    <section>
+
     </section>
     <%- include('../partials/footer') %>

@@ -1,3 +1,4 @@
+import { Job } from '../models/job.js'
 import { Profile } from '../models/profile.js'
 
 function index(req, res) {
@@ -16,13 +17,19 @@ function index(req, res) {
 
 function show(req, res) {
   Profile.findById(req.params.id)
+    .populate('jobs')
     .then(profile => {
+      console.log('testing!!!!', profile)
       const isSelf = profile._id.equals(req.user.profile._id)
-      res.render('profiles/show', {
-        title: 'About me',
-        isSelf,
-        profile,
-      })
+      Job.find({ _id: { $nin: profile.jobs } })
+        .then(job => {
+          res.render('profiles/show', {
+            title: 'About me',
+            isSelf,
+            profile,
+            job
+          })
+        })
     })
     .catch(error => {
       console.log(error)
@@ -60,47 +67,23 @@ function update(req, res) {
     })
 }
 
-// function createAboutMe(req, res) {
-//   Profile.findById(req.params.id)
-//     .then(profile => {
-//       profile.aboutMe.push(req.body)
-//       profile.save()
-//         .then(() => {
-//           res.redirect(`/profiles/${req.user.profile._id}/edit`)
-//         })
-//         .catch(error => {
-//           console.log(error)
-//           res.redirect(`/profiles/${req.user.profile._id}/edit`)
-//         })
-//     })
-//     .catch(error => {
-//       console.log(error)
-//       res.redirect(`/profiles/${req.user.profile._id}/edit`)
-//     })
-// }
+function addToJobs(req, res) {
+  console.log('what is this', req.params.id)
+  Profile.findById(req.params.id)
+    .then(profile => {
+      profile.jobs.push(req.body.id)
+      profile.save()
+        .then(() => {
+          res.redirect(`/profiles/${profile._id}`)
+        })
+    })
+}
 
-// function updateAboutMe(req, res) {
-//   Profile.findById(req.params.id)
-//     .then(profile => {
-//       //about me doc that lives in aboutme arr
-//       const aboutMeInfo = profile.aboutMe.id(req.params.aboutMeId)
-//       //lets us update the item in the aboutme arr 
-//       aboutMeInfo.set(req.body)
-//       // save doesn't exist on subdocument
-//       profile.save()
-//     })
-// }
-
-// function newProfile(req, res) {
-//   res.render('profiles/new', {
-//     title: 'Tell us about yourself!'
-//   })
-// }
 
 export {
   index,
   show,
-  // newProfile as new,
   edit,
-  update
+  update,
+  addToJobs
 }
