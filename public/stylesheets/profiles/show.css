@@ -1,8 +1,21 @@
-h1 {
-  text-align: center;
+section {
+  display: column;
 }
 
-.job-links {
+.section-one {
+  display: flex;
+}
+
+.profile-container {
+  width: 20%;
+}
+
+.section-one div:last-child {
+  margin-left: auto;
+  padding-right: 20px;
+}
+
+.saved-jobs a {
   text-decoration: none;
   color: white;
 }
