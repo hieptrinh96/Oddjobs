@@ -2,39 +2,43 @@
   <link rel="stylesheet" href="/stylesheets/jobs/new.css">
   <%- include('../partials/nav') %>
 
-    <main>
+    <section>
       <h1>
         <%= title %>
       </h1>
       <div class="form-container">
 
         <form action="/jobs" method="post">
+          <div>
+            <label name="name">
+              Name:
+              <input type="text" name="name">
+            </label>
+          </div>
 
-          <label name="name">
-            Name:
-            <input type="text" name="name">
-          </label>
+          <div>
+            <label name="classify">Type of work</label>
+            <select name="classify">
+              <option value="manual">Manual Work</option>
+              <option value="design">Design</option>
+              <option value="Innovate">Ideas</option>
+            </select>
+          </div>
 
+          <div>
+            <label name="location">Location:</label>
+            <input type="text" name="location" autocomplete="off">
+          </div>
 
-          <label name="classify">Type of work</label>
-          <select name="classify">
-            <option value="manual">Manual Work</option>
-            <option value="design">Design</option>
-            <option value="Innovate">Ideas</option>
-          </select>
-
-
-          <label name="location">Location:</label>
-          <input type="text" name="location" autocomplete="off">
-
-
-          <label name="detail">What do you need?</label>
-          <textarea name="detail" autocomplete="off"></textarea>
+          <div>
+            <label name="detail">What do you need?</label>
+            <textarea name="detail" autocomplete="off"></textarea>
+          </div>
 
           <button type="submit">Post Job</button>
         </form>
       </div>
-    </main>
+    </section>
 
 
     <%- include('../partials/footer') %>

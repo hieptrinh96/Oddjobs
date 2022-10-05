@@ -1,0 +1,16 @@
+h1 {
+  text-align: center;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-container div {
+  width: 50%;
+}
+
+form>div {
+  width: 100%;
+}
