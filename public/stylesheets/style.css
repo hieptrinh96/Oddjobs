@@ -41,3 +41,20 @@ main {
 .right {
   margin-left: auto;
 }
+
+.image-container {
+  font-family: 'Cairo Play', cursive;
+  font-family: 'Noto Serif', serif;
+  font-size: 2em;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.image-container>img {
+  width: 30%;
+  height: 40%;
+  border: 2px solid white;
+  margin: 1px;
+}

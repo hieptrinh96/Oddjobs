@@ -1,15 +1,24 @@
 <%- include('./partials/html-head') %>
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@500&family=Noto+Serif:wght@700&display=swap"
+    rel="stylesheet">
   <%- include('./partials/nav') %>
 
-    <main>
-      <h1>Welcome to Oddjobs!</h1>
-      <% if (user?.profile.avatar) { %>
-        <div>
-          <a href="/profiles">
-            <img src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar" />
-          </a>
+    <h1>Welcome to Oddjobs!</h1>
+    <h1>Let us handle what you need to do.</h1>
+    <section>
+      <div class="image-container">
+        <div class="text-container">
+          <h1>From Chores,</h1>
+          <h1>To Errands,</h1>
+          <h1>Find the help you need.</h1>
         </div>
-        <% } %>
-    </main>
+        <img src="./images/pexels-meruyert-gonullu-7243710.jpg" alt="cleaning dishes">
+        <img src="./images/pexels-ivan-samkov-5799050.jpg" alt="paint tools">
+        <img src="./images/pexels-markus-spiske-95215.jpg" alt="watering garden">
+        <img src="./images/pexels-maria-orlova-4916114.jpg" alt="fruits">
+      </div>
+    </section>
+
 
     <%- include('./partials/footer') %>
