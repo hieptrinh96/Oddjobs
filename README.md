@@ -8,10 +8,12 @@ My app is called Oddjobs and it is an application that allows people to find qui
   - CSS
     - Flex
   - Embedded JavaScript
+  - Bootstrap
 
 ### Credits
   - Favicon was created using [Favicon](https://favicon.io/favicon-generator/)
   - All images can be found at [Pexels](https://www.pexels.com/)
+  - Styling of the navbar and buttons are from [Bootstrap](https://getbootstrap.com/)
 
 # Icebox:
   - [ ] Implement being able to submit the desired job via email to the job poster.
