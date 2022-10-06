@@ -47,26 +47,57 @@ main {
   margin-left: auto;
 }
 
-.image-container {
+.image-text-container {
   font-family: 'Cairo Play', cursive;
   font-family: 'Noto Serif', serif;
-  font-size: 2em;
+  font-size: 3em;
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: end;
+  align-items: flex-start;
 }
 
-.image-container>img {
-  width: 30%;
-  height: 40%;
-  border: 2px solid white;
-  margin: 5px;
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  width: 50%;
 }
+
+
 
 .text-container {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  margin-right: 20px;
+  align-self: center;
+  justify-content: space-between;
+  text-align: center;
+  width: 50%;
+  height: 100vh;
+}
+
+
+.title {
+  text-align: center;
+}
+
+.first-two-images,
+.second-two-images {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+
+}
+
+.first-two-images>img,
+.second-two-images>img {
+
+  width: 50%;
+  height: 40%;
+  border: 2px solid white;
+  margin: 5px;
 }
