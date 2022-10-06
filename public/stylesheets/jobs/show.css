@@ -1,8 +1,24 @@
+body {
+  background-color: grey;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 h1 {
   text-align: center;
 }
 
-.job-links {
-  text-decoration: none;
-  color: white;
+.job-container {
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

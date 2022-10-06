@@ -2,34 +2,44 @@
   <link rel="stylesheet" href="/stylesheets/jobs/show.css">
   <%- include('../partials/nav') %>
 
+    <h1>
+      <%= title %>
+    </h1>
     <section>
-      <h1>
-        <%= title %>
-      </h1>
       <div class="job-container">
         <h3>Post was created by <%= job.owner.name %>
+            <p>
+              Job Description: <%= job.detail %>
+            </p>
+            <p>
+              Location: <%= job.location %>
+            </p>
+            <p>
+              Job Category: <%= job.classify %>
+            </p>
         </h3>
-        <p>
-          <%= job.detail %>
-        </p>
-        <p>
-          <%= job.location %>
-        </p>
-        <p>
-          <%= job.classify %>
-        </p>
       </div>
-      <form action="/profiles/<%= user.profile._id %>/jobs" method="post">
-        <input type="text" name="id" hidden value="<%= job._id %>">
-        <button type="submit">
-          Add to Job list
-        </button>
-      </form>
-      <% if (job.owner.equals(user?.profile._id)) { %>
-        <a href="/jobs/<%= job._id %>/edit">Edit</a>
-        <form action="/jobs/<%= job._id %>?_method=delete" method="post">
-          <button type="submit">Remove post</button>
-        </form>
-        <% } %>
+      <div class="button-container">
+        <div>
+          <form action="/profiles/<%= user.profile._id %>/jobs" method="post">
+            <input type="text" name="id" hidden value="<%= job._id %>">
+            <button type="submit">
+              Add to Job list
+            </button>
+          </form>
+        </div>
+        <% if (job.owner.equals(user?.profile._id)) { %>
+          <div>
+            <a href="/jobs/<%= job._id %>/edit">
+              <button>Edit</button>
+            </a>
+          </div>
+          <div>
+            <form action="/jobs/<%= job._id %>?_method=delete" method="post">
+              <button type="submit">Remove post</button>
+            </form>
+          </div>
+      </div>
+      <% } %>
     </section>
     <%- include('../partials/footer') %>
