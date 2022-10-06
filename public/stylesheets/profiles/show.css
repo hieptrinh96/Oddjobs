@@ -15,24 +15,42 @@ section {
   display: column;
 }
 
+img {
+  width: 30%;
+}
 
 .section-one {
   display: flex;
-  width: 50%;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
-.profile-container {
-  width: 20%;
-}
 
 
 .saved-jobs a {
   text-decoration: none;
   color: white;
-  text-align: center;
+}
+
+.saved-jobs {
+  width: 30%;
 }
 
 .profile-container {
   width: 30%;
+}
+
+.section-two {
+  display: flex;
+  width: 100%;
+}
+
+.job-links {
+  border: 2px solid white;
+  padding-left: 10px;
+  margin: 5px;
+}
+
+.card-body {
+  font-size: 1.5em;
 }

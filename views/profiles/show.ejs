@@ -5,23 +5,22 @@
       <h1>About me</h1>
       <% } %>
         <section class="section-one">
-          <div class="card">
-            <img class="profile-avatar card-img-top" src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
+          <div class="profile-container">
+            <img class="profile-avatar" src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
             <div class="card-body">
-              <h5 class="card-title">
+              <p class="card-title">
+                <strong>Name:</strong>
                 <%= profile.name %>
-              </h5>
-              <p class="card-text"><strong>Location:</strong></p>
-              <p class="card-text">
+              </p>
+              <p class="card-text"><strong>Location:</strong>
                 <%= profile.location %>
               </p>
-              <p class="card-text"><strong>Experience</strong>
-              </p>
-              <p class="card-text">
+
+              <p class="card-text"><strong>Experience:</strong>
                 <%= profile.experience %>
               </p>
               <p class="card-text">
-                <strong>Do you have a preference for jobs?</strong>
+                <strong>Preference for desired job?</strong>
               </p>
               <p class="card-text">
                 <%= profile.preference %>
@@ -56,29 +55,25 @@
             </div>
             <% } %>
         </section>
-        <section>
-          <h2>User Reviews</h2>
-          <% if (!isSelf) { %>
-            <div>
+        <section class="section-two">
+          <div>
+            <h2>User Reviews</h2>
+            <% if (!isSelf) { %>
               <a href="/reviews/new/<%= profile._id %>">Create a post</a>
-            </div>
-            <% } %>
-        </section>
-        <section>
-          <% if (profile.reviews.length) { %>
-            <% profile.reviews.forEach(review=> { %>
-              <div>
-                <p>
-                  <strong>Rating: </strong>
-                  <%= review.rating %> / 5
-                </p>
-                <p>
-                  <%= review.comment %>
-                </p>
-              </div>
-              <% }) %>
-                <% } else { %>
-                  <h2>Give this user a review</h2>
+          </div>
+          <% } %>
+            <% if (profile.reviews.length) { %>
+              <% profile.reviews.forEach(review=> { %>
+                <div>
+                  <p>
+                    <strong>Rating: </strong>
+                    <%= review.rating %> / 5
+                  </p>
+                  <p>
+                    <%= review.comment %>
+                  </p>
+                </div>
+                <% }) %>
                   <% } %>
         </section>
         <%- include('../partials/footer') %>
