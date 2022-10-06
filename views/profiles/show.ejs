@@ -32,36 +32,30 @@
                 <% } %>
             </div>
           </div>
-          <% if (isSelf) { %>
-            <div class="saved-jobs">
-              <h2>Saved Jobs</h2>
-              <% profile.savedJobs.forEach(job=> { %>
-                <div class="job-links">
-                  <a href="/jobs/<%= job._id %> ">
-                    <p>Posted by <%= job.name %>
-                    </p>
-                    <p>Job Type: <%= job.classify %>
-                    </p>
-                    <p>Location: <%= job.location %>
-                    </p>
-                    <p>Job Description: <%= job.detail %>
-                    </p>
-                  </a>
+          <div class="saved-jobs">
+            <h2>Saved Jobs</h2>
+            <% profile.savedJobs.forEach(job=> { %>
+              <div class="job-links">
+                <a href="/jobs/<%= job._id %> ">
+                  <p>Location: <%= job.location %>
+                  </p>
+                  <p>Job Description: <%= job.detail %>
+                  </p>
+                  <p><small>by <%= job.name %></small>
+                  </p>
+                </a>
+                <% if (isSelf) { %>
                   <form action="/profiles/<%= profile._id %>/savedJobs/<%= job._id %>?_method=delete" method="post">
                     <button>Delete</button>
                   </form>
-                </div>
-                <% }) %>
-            </div>
-            <% } %>
+                  <% } %>
+              </div>
+              <% }) %>
+          </div>
         </section>
         <section class="section-two">
           <div>
             <h2>User Reviews</h2>
-            <% if (!isSelf) { %>
-              <a href="/reviews/new/<%= profile._id %>">Create a post</a>
-          </div>
-          <% } %>
             <% if (profile.reviews.length) { %>
               <% profile.reviews.forEach(review=> { %>
                 <div>
@@ -75,5 +69,9 @@
                 </div>
                 <% }) %>
                   <% } %>
+                    <% if (!isSelf) { %>
+                      <a href="/reviews/new/<%= profile._id %>">Create a post</a>
+          </div>
+          <% } %>
         </section>
         <%- include('../partials/footer') %>
