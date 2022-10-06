@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-  <link rel="stylesheet" href="/stylesheets/profiles/index.css">
+  <link rel="stylesheet" href="/stylesheets/jobs/edit.css">
   <%- include('../partials/nav') %>
 
     <main>
@@ -7,23 +7,25 @@
         <%= title %>
       </h1>
       <form action="/jobs/<%= job._id %>?_method=put" method="post">
-        <div>
-          <label name="classify">Type of work</label>
-          <select name="classify">
-            <option value="manual">Manual Work</option>
-            <option value="design">Design</option>
-            <option value="Innovate">Ideas</option>
-          </select>
+        <div class="form-row">
+          <div class="form-group col-md-7">
+            <label name="classify">Type of work</label>
+            <select name="classify" class="form-control">
+              <option value="manual">Manual Labor</option>
+              <option value="design">Design</option>
+              <option value="Innovate">Ideas</option>
+            </select>
+          </div>
+          <div class="form-group col-md-7">
+            <label name="location">Location:</label>
+            <input type="text" name="location" autocomplete="off" class="form-control">
+          </div>
+          <div class="form-group">
+            <label name="detail">What do you need?</label>
+            <textarea type="text" name="detail" autocomplete="off" class="form-control"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Update Job</button>
         </div>
-        <div>
-          <label name="location">Location:</label>
-          <input type="text" name="location" autocomplete="off">
-        </div>
-        <div>
-          <label name="detail">What do you need?</label>
-          <textarea type="text" name="detail" autocomplete="off"></textarea>
-        </div>
-        <button type="submit">Update Job</button>
       </form>
     </main>
 
