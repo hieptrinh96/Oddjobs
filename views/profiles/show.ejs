@@ -2,7 +2,9 @@
   <link rel="stylesheet" href="/stylesheets/profiles/show.css">
   <%- include('../partials/nav') %>
     <% if (isSelf) { %>
-      <h1>About me</h1>
+      <h1>
+        <%= profile.name %>'s Profile
+      </h1>
       <% } %>
         <section class="section-one">
           <div class="profile-container">
@@ -20,7 +22,7 @@
                 <%= profile.experience %>
               </p>
               <p class="card-text">
-                <strong>Preference for desired job?</strong>
+                <strong>Preference:</strong>
               </p>
               <p class="card-text">
                 <%= profile.preference %>
@@ -58,13 +60,16 @@
             <h2>User Reviews</h2>
             <% if (profile.reviews.length) { %>
               <% profile.reviews.forEach(review=> { %>
-                <div>
+                <div class="reviews">
                   <p>
                     <strong>Rating: </strong>
                     <%= review.rating %> / 5
                   </p>
                   <p>
                     <%= review.comment %>
+                  </p>
+                  <p class="review">
+                    <%= review.createdAt.toLocaleDateString() %>
                   </p>
                 </div>
                 <% }) %>

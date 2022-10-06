@@ -15,6 +15,7 @@ h1 {
 
 .job-container {
   text-align: center;
+  display: flex;
 }
 
 .button-container {
@@ -25,4 +26,13 @@ h1 {
 
 .button-container>div {
   padding: 5px;
+}
+
+h3 {
+  color: white;
+}
+
+p {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }

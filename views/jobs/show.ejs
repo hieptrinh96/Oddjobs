@@ -8,15 +8,17 @@
     <section>
       <div class="job-container">
         <h3>Post was created by <%= job.owner.name %>
-            <p>
-              Job Description: <%= job.detail %>
-            </p>
-            <p>
-              Location: <%= job.location %>
-            </p>
-            <p>
-              Job Category: <%= job.classify %>
-            </p>
+            <div class="job-descriptions">
+              <p>
+                Job Description: <%= job.detail %>
+              </p>
+              <p>
+                Location: <%= job.location %>
+              </p>
+              <p>
+                Job Category: <%= job.classify %>
+              </p>
+            </div>
         </h3>
       </div>
       <div class="button-container">

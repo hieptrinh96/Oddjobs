@@ -66,3 +66,12 @@ form {
   display: flex;
   justify-content: end;
 }
+
+.reviews {
+  border: 2px solid white;
+  color: white;
+}
+
+.review {
+  text-align: end;
+}
