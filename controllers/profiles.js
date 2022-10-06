@@ -18,7 +18,6 @@ function index(req, res) {
 
 function show(req, res) {
   Profile.findById(req.params.id)
-    // .populate('jobs')
     .populate('reviews')
     .populate('savedJobs')
     .then(profile => {
@@ -74,7 +73,6 @@ function addToJobs(req, res) {
       if (!profile.savedJobs.some(savedJob => {
         return savedJob?.equals(req.body.id)
       })) {
-        // profile.jobs.push(req.body.id)
         profile.savedJobs.push(req.body.id)
       }
       profile.save()

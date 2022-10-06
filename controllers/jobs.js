@@ -36,7 +36,6 @@ function show(req, res) {
   Job.findById(req.params.id)
     .populate('owner')
     .then(job => {
-      console.log(job)
       res.render('jobs/show', {
         job,
         title: 'Job Details'

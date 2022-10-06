@@ -1,7 +1,6 @@
 import { Review } from '../models/review.js'
 import { Profile } from '../models/profile.js'
 
-
 function create(req, res) {
   req.body.owner = req.user.profile._id
   Review.create(req.body)

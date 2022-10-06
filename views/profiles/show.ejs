@@ -46,7 +46,7 @@
                 </a>
                 <% if (isSelf) { %>
                   <form action="/profiles/<%= profile._id %>/savedJobs/<%= job._id %>?_method=delete" method="post">
-                    <button>Delete</button>
+                    <button class="btn btn-primary">Delete</button>
                   </form>
                   <% } %>
               </div>
@@ -70,7 +70,9 @@
                 <% }) %>
                   <% } %>
                     <% if (!isSelf) { %>
-                      <a href="/reviews/new/<%= profile._id %>">Create a post</a>
+                      <a href="/reviews/new/<%= profile._id %>">
+                        <button class="btn btn-primary">Create a review</button>
+                      </a>
           </div>
           <% } %>
         </section>
