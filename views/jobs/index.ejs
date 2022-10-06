@@ -7,16 +7,15 @@
         <%= title %>
       </h1>
       <% jobs.forEach(job=> { %>
-        <div class="job">
-          <a href="/jobs/<%= job._id %>">
+        <div class="list-group">
+          <a href="/jobs/<%= job._id %>" type="button" class="list-group-item list-group-item-action">
             <p>
-              Type of work: <%= job.classify %>
+              <strong>Location:</strong>
+              <%= job.location %>
             </p>
             <p>
-              Details: <%= job.detail %>
-            </p>
-            <p>
-              Location: <%= job.location %>
+              <strong>Details:</strong>
+              <%= job.detail %>
             </p>
             <p><small>Posted by: <%=job.name %> on <%= job.createdAt %>
               </small></p>
