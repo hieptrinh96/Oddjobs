@@ -4,28 +4,38 @@
     <h2>Edit Page</h2>
     <div>
       <form action="/profiles/<%= profile._id %>?_method=PUT" method="POST">
-        <label name="name">
-          Name:
-          <input type="text" name="name">
-        </label>
-        <label name="experience">
-          What are you good at?
-          <input type="text" name="experience">
-        </label>
-        <label name="location">
-          Location:
-          <input type="text" name="location">
-        </label>
-        <label name="preference">
-          What type of work do ypu prefer?
-          <select name="preference">
-            <option value="manual labor">Manual Labor</option>
-            <option value="teaching">Teaching/Tutoring</option>
-            <option value="cleaning">Cleaning/Chores</option>
-            <option value="design">design</option>
-          </select>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label name="name">
+              Name:
+            </label>
+            <input type="text" name="name" class="form-control">
+          </div>
+          <div class="form-group col-md-6">
+            <label name="experience">
+              What do you have experience in?
+            </label>
+            <input type="text" name="experience" class="form-control">
+          </div>
+          <div class="form-group col-md-6">
+            <label name="location">
+              Location:
+            </label>
+            <input type="text" name="location" class="form-control">
+          </div>
+          <div class="form-group col-md-4">
+            <label name="preference">
+              What type of work do ypu prefer?
+            </label>
+            <select name="preference" class="form-control">
+              <option value="manual labor">Manual Labor</option>
+              <option value="teaching">Teaching/Tutoring</option>
+              <option value="cleaning">Cleaning/Chores</option>
+              <option value="design">design</option>
+            </select>
+          </div>
           <button type="submit">Update profile!</button>
-        </label>
+        </div>
       </form>
     </div>
     <%- include('../partials/footer') %>
