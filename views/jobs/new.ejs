@@ -6,38 +6,36 @@
       <h1>
         <%= title %>
       </h1>
-      <div class="form-container">
 
-        <form action="/jobs" method="post">
-          <div>
-            <label name="name">
-              Name:
-              <input type="text" name="name">
-            </label>
-          </div>
+      <form action="/jobs" method="post">
+        <div class="form-group">
+          <label name="name">
+            Name:
+            <input type="text" name="name" class="form-control">
+          </label>
+        </div>
+        <div class="form-group">
+          <label name="classify">Type of work</label>
+          <select name="classify" class="form-control">
+            <option value="manual">Manual Work</option>
+            <option value="design">Design</option>
+            <option value="Innovate">Ideas</option>
+          </select>
+        </div>
+        <div class="form-group">
 
-          <div>
-            <label name="classify">Type of work</label>
-            <select name="classify">
-              <option value="manual">Manual Work</option>
-              <option value="design">Design</option>
-              <option value="Innovate">Ideas</option>
-            </select>
-          </div>
+          <label name="location">Location:</label>
+          <input type="text" name="location" autocomplete="off" class="form-control">
+        </div>
+        <div class="form-group">
 
-          <div>
-            <label name="location">Location:</label>
-            <input type="text" name="location" autocomplete="off">
-          </div>
+          <label name="detail">What do you need?</label>
+          <textarea name="detail" autocomplete="off" class="form-control"></textarea>
+        </div>
 
-          <div>
-            <label name="detail">What do you need?</label>
-            <textarea name="detail" autocomplete="off"></textarea>
-          </div>
+        <button type="submit">Post Job</button>
+      </form>
 
-          <button type="submit">Post Job</button>
-        </form>
-      </div>
     </section>
 
 

@@ -3,14 +3,11 @@ h1 {
 }
 
 .form-container {
+  width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.form-container div {
-  width: 50%;
-}
-
-form>div {
+.form-div {
   width: 100%;
 }
