@@ -7,33 +7,50 @@
       <div class="profile-container">
         <img class="profile-avatar" src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
       </div>
-      <div class="profile-info">
-        <strong>
-          <p>Name:
-        </strong>
-        <%= profile.name %>
+      <div class="list-group list-group-flush">
+        <li class="list-group-item">
+          <strong>
+            <p>Name:
+          </strong>
           </p>
+          <p>
+            <%= profile.name %>
+          </p>
+        </li>
+        <li class="list-group-item">
+
           <strong>
             <p>Location:
           </strong>
-          <%= profile.location %>
-            </p>
-            <strong>
-              <p>Experience
-            </strong>
+          <p>
+            <%= profile.location %>
+          </p>
+          </p>
+        </li>
+        <li class="list-group-item">
+          <strong>
+            <p>Experience
+          </strong>
+          <p>
             <%= profile.experience %>
-              </p>
-              <strong>
-                <p>
-                  Do you have a preference for jobs?
-              </strong>
-              <%= profile.preference %>
-                </p>
-                <% if (isSelf) { %>
-                  <a href="/profiles/<%= profile._id %>/edit">
-                    <button>Edit</button>
-                  </a>
-                  <% } %>
+          </p>
+          </p>
+        </li>
+        <li class="list-group-item">
+          <strong>
+            <p>
+              Do you have a preference for jobs?
+          </strong>
+          <p>
+            <%= profile.preference %>
+          </p>
+          </p>
+        </li>
+        <% if (isSelf) { %>
+          <a href="/profiles/<%= profile._id %>/edit">
+            <button class="btn btn-primary">Edit</button>
+          </a>
+          <% } %>
       </div>
       <div>
       </div>
