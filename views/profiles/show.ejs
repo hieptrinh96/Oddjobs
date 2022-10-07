@@ -1,84 +1,83 @@
 <%- include('../partials/html-head') %>
   <link rel="stylesheet" href="/stylesheets/profiles/show.css">
   <%- include('../partials/nav') %>
-    <% if (isSelf) { %>
-      <h1>
-        <%= profile.name %>'s Profile
-      </h1>
-      <% } %>
-        <section class="section-one">
-          <div class="profile-container">
-            <img class="profile-avatar" src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
-            <div class="card-body">
-              <p class="card-title">
-                <strong>Name:</strong>
-                <%= profile.name %>
-              </p>
-              <p class="card-text"><strong>Location:</strong>
-                <%= profile.location %>
-              </p>
 
-              <p class="card-text"><strong>Experience:</strong>
-                <%= profile.experience %>
+    <h1>
+      My Profile
+    </h1>
+    <section class="section-one">
+      <div class="profile-container">
+        <img class="profile-avatar" src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
+        <div class="card-body">
+          <p class="card-title">
+            <strong>Name:</strong>
+            <%= profile.name %>
+          </p>
+          <p class="card-text"><strong>Location:</strong>
+            <%= profile.location %>
+          </p>
+
+          <p class="card-text"><strong>Experience:</strong>
+            <%= profile.experience %>
+          </p>
+          <p class="card-text">
+            <strong>Preference:</strong>
+          </p>
+          <p class="card-text">
+            <%= profile.preference %>
+          </p>
+          <% if (isSelf) { %>
+            <a href="/profiles/<%= profile._id %>/edit">
+              <button class="btn btn-primary">Edit</button>
+            </a>
+            <% } %>
+        </div>
+      </div>
+      <div class="saved-jobs">
+        <h2>Saved Jobs</h2>
+        <% profile.savedJobs.forEach(job=> { %>
+          <div class="job-links">
+            <a href="/jobs/<%= job._id %> ">
+              <p>Location: <%= job.location %>
               </p>
-              <p class="card-text">
-                <strong>Preference:</strong>
+              <p>Job Description: <%= job.detail %>
               </p>
-              <p class="card-text">
-                <%= profile.preference %>
+              <p><small>Created by <%= job.name %></small>
               </p>
-              <% if (isSelf) { %>
-                <a href="/profiles/<%= profile._id %>/edit">
-                  <button class="btn btn-primary">Edit</button>
-                </a>
-                <% } %>
+            </a>
+            <% if (isSelf) { %>
+              <form action="/profiles/<%= profile._id %>/savedJobs/<%= job._id %>?_method=delete" method="post">
+                <button class="btn btn-primary">Delete</button>
+              </form>
+              <% } %>
+          </div>
+          <% }) %>
+      </div>
+    </section>
+    <section class="section-two">
+      <div>
+        <h2>User Reviews</h2>
+        <% if (profile.reviews.length) { %>
+          <% profile.reviews.forEach(review=> { %>
+            <div class="reviews">
+              <p>
+                <strong>Rating: </strong>
+                <%= review.rating %> / 5
+              </p>
+              <p>
+                <%= review.comment %>
+              </p>
+              <p class="review">
+                <%= review.createdAt.toLocaleDateString() %>
+              </p>
             </div>
-          </div>
-          <div class="saved-jobs">
-            <h2>Saved Jobs</h2>
-            <% profile.savedJobs.forEach(job=> { %>
-              <div class="job-links">
-                <a href="/jobs/<%= job._id %> ">
-                  <p>Location: <%= job.location %>
-                  </p>
-                  <p>Job Description: <%= job.detail %>
-                  </p>
-                  <p><small>Created by <%= job.name %></small>
-                  </p>
-                </a>
-                <% if (isSelf) { %>
-                  <form action="/profiles/<%= profile._id %>/savedJobs/<%= job._id %>?_method=delete" method="post">
-                    <button class="btn btn-primary">Delete</button>
-                  </form>
-                  <% } %>
-              </div>
-              <% }) %>
-          </div>
-        </section>
-        <section class="section-two">
-          <div>
-            <h2>User Reviews</h2>
-            <% if (profile.reviews.length) { %>
-              <% profile.reviews.forEach(review=> { %>
-                <div class="reviews">
-                  <p>
-                    <strong>Rating: </strong>
-                    <%= review.rating %> / 5
-                  </p>
-                  <p>
-                    <%= review.comment %>
-                  </p>
-                  <p class="review">
-                    <%= review.createdAt.toLocaleDateString() %>
-                  </p>
-                </div>
-                <% }) %>
-                  <% } %>
-                    <% if (!isSelf) { %>
-                      <a href="/reviews/new/<%= profile._id %>">
-                        <button class="btn btn-primary">Create a review</button>
-                      </a>
-          </div>
-          <% } %>
-        </section>
-        <%- include('../partials/footer') %>
+            <% }) %>
+              <% } %>
+                <% if (!isSelf) { %>
+                  <a href="/reviews/new/<%= profile._id %>">
+                    <button class="btn btn-primary">Create a review</button>
+                  </a>
+      </div>
+      <% } %>
+    </section>
+    <%- include('../partials/footer') %>
