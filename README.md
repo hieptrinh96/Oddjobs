@@ -20,4 +20,4 @@ My app is called Oddjobs and it is an application that allows people to find qui
 # Icebox:
   - [ ] Implement the ability to submit the desired job via email to the job poster.
   - [ ] Implement a dark mode.
-  - [ ] Implement user verification to ensure account are authentic and not bots.
+  - [ ] Implement user verification to ensure accounts are authentic and not bots.
