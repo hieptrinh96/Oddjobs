@@ -18,5 +18,6 @@ My app is called Oddjobs and it is an application that allows people to find qui
   - Styling of the navbar and buttons are from [Bootstrap](https://getbootstrap.com/)
 
 # Icebox:
-  - [ ] Implement being able to submit the desired job via email to the job poster.
+  - [ ] Implement the ability to submit the desired job via email to the job poster.
   - [ ] Implement a dark mode.
+  - [ ] Implement user verification to ensure account are authentic and not bots.
