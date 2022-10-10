@@ -2,6 +2,7 @@ import { Job } from '../models/job.js'
 
 function index(req, res) {
   Job.find({})
+    .populate('owner')
     .then(jobs => {
       res.render('jobs/index', {
         jobs,

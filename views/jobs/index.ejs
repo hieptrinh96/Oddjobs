@@ -17,7 +17,7 @@
               <strong>Details:</strong>
               <%= job.detail %>
             </p>
-            <p><small>Posted by: <%=job.name %> on <%= job.createdAt.toLocaleDateString() %>
+            <p><small>Posted by: <%=job.owner.name %> on <%= job.createdAt.toLocaleDateString() %>
               </small></p>
           </a>
         </div>
